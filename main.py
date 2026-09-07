@@ -667,7 +667,7 @@ def optimize_resume(
 
 
 # ============================================================
-# 8. 第五次调用：事实审核 + 最终安全版结构化
+# 8. 第五次调用：事实审核 + 最终优化版结构化
 # ============================================================
 
 
@@ -694,7 +694,7 @@ def verify_resume(
     optimized_result,
 ):
     """
-    V0.7 Step 3：事实审核结果与最终安全版简历全部结构化。
+    V0.7 Step 3：事实审核结果与最终优化版简历全部结构化。
 
     返回：
     {
@@ -745,7 +745,7 @@ def verify_resume(
 8. “Python”“RAG”“Streamlit”等独立事实不能自动建立技术归属关系。
 9. 不得把并列技能改成包含、从属、等同或组合关系，如“LLM应用开发（含RAG）”“LLM/RAG应用开发”。
 10. 原事实未明确时，不得新增“各、多个、多项、多款、若干、全部、全面、独立、负责、主导、深入、熟练、精通、完整、全链路、显著、大幅、高效”等词。
-11. 多条AI相关实践可以作为AI实践证据，但安全版不得凭空总结为“多个项目”或新增项目边界。
+11. 多条AI相关实践可以作为AI实践证据，但优化版不得凭空总结为“多个项目”或新增项目边界。
 12. 教育背景、校园经历、自我评价、联系方式逐条保持原事实，不为了贴JD强行补关键词。
 13. 手机、邮箱保持原始纯文本内容，不生成Markdown链接。
 14. 不得为了所谓“精简”删除仍具有独立证据价值的技术词。例如JD要求Python时，“使用Python调用DeepSeek API”中的Python应保留。
@@ -755,7 +755,7 @@ def verify_resume(
 18. 技能一项一条、联系方式一项一条、项目/实践一条一条；不得把多条事实塞进一个数组元素。
 19. 草稿中的某条优化表述审核失败时，恢复对应的安全原始事实，而不是删除整个经历。
 20. 信息完整性是硬约束：必须逐项对照【候选人已确认事实】，最终 safe_resume 中应保留其中每个独立、非重复的真实求职事实。不得因为某条事实与当前JD相关性较弱、看起来“不重要”或没有单独栏目就自行省略。专业/教育信息尤其不得丢失。若草稿漏掉某条已确认事实，审核器必须在最终安全版中恢复。
-21. 最终安全版只保留简历正文，不保留【事实依据】、审核说明等中间信息。
+21. 最终优化版只保留简历正文，不保留【事实依据】、审核说明等中间信息。
 22. safe_resume.sections 按最终简历实际展示顺序返回；每个栏目只出现一次。
 
 audit 中逐条记录对 resume_draft 的事实审核：
@@ -786,8 +786,8 @@ safe_resume 中只放最终可展示的简历正文。
       {{
         "name": "原简历栏目名",
         "items": [
-          "最终安全表述1",
-          "最终安全表述2"
+          "最终优化表述1",
+          "最终优化表述2"
         ]
       }}
     ]
@@ -855,17 +855,17 @@ safe_resume 中只放最终可展示的简历正文。
 
     for index, section in enumerate(sections, start=1):
         if not isinstance(section, dict):
-            raise ValueError(f"第{index}个安全版栏目不是JSON对象")
+            raise ValueError(f"第{index}个优化版栏目不是JSON对象")
 
         name = str(section.get("name", "")).strip()
         items = section.get("items", [])
 
         if not name:
-            raise ValueError(f"第{index}个安全版栏目缺少 name")
+            raise ValueError(f"第{index}个优化版栏目缺少 name")
         if name in seen_sections:
-            raise ValueError(f"安全版简历出现重复栏目：{name}")
+            raise ValueError(f"优化版简历出现重复栏目：{name}")
         if not isinstance(items, list):
-            raise ValueError(f"安全版栏目 {name} 的 items 必须是数组")
+            raise ValueError(f"优化版栏目 {name} 的 items 必须是数组")
 
         cleaned_items = []
         for value in items:
@@ -885,7 +885,7 @@ safe_resume 中只放最终可展示的简历正文。
         seen_sections.add(name)
 
     if not cleaned_sections:
-        raise ValueError("事实审核后未生成可用的安全版简历栏目")
+        raise ValueError("事实审核后未生成可用的优化版简历栏目")
 
     return {
         "audit": cleaned_audit,
@@ -1012,7 +1012,7 @@ def evaluate_result(
 审核器错误放行时不能给5分。
 
 3. 信息完整性
-必须逐项对照【原始简历】和【候选人事实抽取】检查最终安全版。
+必须逐项对照【原始简历】和【候选人事实抽取】检查最终优化版。
 除纯重复信息外，原始简历中每个独立、真实的求职事实都应被保留，尤其是专业/教育背景、技能、项目/实践、校园经历、自我评价和联系方式。
 不得自行判断某条事实“与JD不够相关”“看起来不重要”而允许删除；专业信息缺失也属于信息遗漏。
 只要存在独立真实事实遗漏，信息完整性不得给5分；若遗漏教育/专业、技能或项目/实践等核心信息，应明确指出。
@@ -1039,7 +1039,7 @@ def evaluate_result(
 A. suggestions.ordering 与 suggestions.wording 是否均为结构化数据，字段完整。
 B. 每条修改建议是否有1到2句话解释原因。
 C. 原因是否只解释JD对应关系、信息清晰度和等义精简，不预测招聘者行为、不虚构优先级。
-D. 修改建议是否真正落实到 resume_draft 和最终安全版；若未落实是否存在合理安全原因。
+D. 修改建议是否真正落实到 resume_draft 和最终优化版；若未落实是否存在合理安全原因。
 D. 是否为了“优化感”把原本清楚的“包括”改成“覆盖”，或使用“完整性认知”等增强性解释。
 E. 后续可补充是否只围绕已有经历的真实上下文，没有主动引入Embedding模型比较、切分粒度、检索策略等资料未出现的高级方法。
 F. 通用建议是否最多2条、方向性明确，并明确不是当前JD要求。

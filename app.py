@@ -525,11 +525,11 @@ def validate_analysis_result(jd_mapping, optimized_result, verified_result):
         raise ValueError("修改建议结构异常")
 
     if not isinstance(verified_result, dict):
-        raise ValueError("安全版简历结构异常")
+        raise ValueError("优化版简历结构异常")
 
     sections = get_safe_resume_sections(verified_result)
     if not sections:
-        raise ValueError("安全版简历为空")
+        raise ValueError("优化版简历为空")
 
 
 def friendly_error_message(error):
@@ -555,9 +555,9 @@ def friendly_error_message(error):
     if (
         "事实审核" in message
         or "safe_resume" in message
-        or "安全版简历" in message
+        or "优化版简历" in message
     ):
-        return "安全版简历生成异常，请重新分析一次。"
+        return "优化版简历生成异常，请重新分析一次。"
 
     if "rate limit" in lowered or "429" in message:
         return "当前请求较多，请稍等片刻后重新尝试。"
@@ -732,7 +732,7 @@ def render_safe_resume(verified_result):
     sections = get_safe_resume_sections(verified_result)
 
     if not sections:
-        st.warning("暂未获得可展示的安全版简历。")
+        st.warning("暂未获得可展示的优化版简历。")
         return
 
     blocks = []
@@ -770,7 +770,7 @@ def render_safe_resume(verified_result):
         )
 
     if not blocks:
-        st.warning("暂未获得可展示的安全版简历。")
+        st.warning("暂未获得可展示的优化版简历。")
         return
 
     resume_html = '<div class="resume-card">' + "".join(blocks) + '</div>'
@@ -908,7 +908,7 @@ def render_developer_details():
 
 render_page_title(
     "AI Career Assistant",
-    "上传简历并输入目标 JD，获得基于真实经历的岗位匹配与安全简历优化建议。",
+    "上传简历并输入目标 JD，获得基于真实经历的岗位匹配与优化简历优化建议。",
 )
 
 
@@ -1095,7 +1095,7 @@ if "verified_result" in st.session_state:
         [
             "岗位匹配",
             "修改建议",
-            "安全版简历",
+            "优化版简历",
         ]
     )
 
@@ -1130,10 +1130,10 @@ if "verified_result" in st.session_state:
         render_follow_up(optimized_result)
 
     # --------------------------------------------------------
-    # Tab 3：安全版简历
+    # Tab 3：优化版简历
     # --------------------------------------------------------
     with tab3:
-        render_section_title("优化后的安全版简历")
+        render_section_title("优化版简历")
 
         render_html(
             '<div class="callout green">以下表述经过事实核验，优先避免虚构经历和过度包装。</div>'
