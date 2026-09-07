@@ -8,8 +8,17 @@ AI简历优化助手（AI Career Assistant）
 
 产品预览
 
-TODO：插入首页 / 岗位匹配 / 修改建议 / 安全版简历截图
-建议最终放 3～4 张代表性截图即可。
+
+
+
+
+将最终截图保存到 assets/ 目录后即可在 GitHub README 中直接显示。建议保留 2～4 张代表性截图。
+
+产品结构
+
+
+
+
 
 核心能力
 
@@ -31,23 +40,7 @@ Evaluation：通过 6 组回归测试 Case 持续检测事实一致性、幻觉�
 
 系统采用多阶段 AI Pipeline，将事实提取、JD 解析、岗位匹配、RAG、简历优化和事实审核拆分处理。
 
-PDF 简历 → 简历文本提取 → 简历事实提取
-                               │
-目标岗位 JD → JD 要求提取 ──────┤
-                               ↓
-                         事实-JD 匹配
-                               │
-目标岗位 JD ─────────────→ RAG 知识检索
-                               │
-简历事实 + JD 要求 + 事实-JD 匹配 + RAG 检索结果
-                               ↓
-                           简历优化
-                               ↓
-               原始简历事实 → 事实审核
-                               ↓
-                           安全版简历
 
-TODO：此处插入 AI 处理流程图
 
 为什么强调事实约束
 
@@ -157,26 +150,27 @@ python-dotenv
 项目结构
 
 AI-Career-Assistant/
-│
-├── app.py
-├── main.py
-├── requirements.txt
-├── README.md
-├── .env
-│
-├── data/
-│   └── examples/
-│       └── resume_guide.txt
-│
-└── tests/
-    ├── case_01/
-    │   ├── resume.txt
-    │   ├── jd.txt
-    │   ├── expected.txt
-    │   └── result.txt
-    ├── case_02/
-    ├── ...
-    └── case_06/
+  app.py
+  main.py
+  requirements.txt
+  README.md
+  .gitignore
+  data/
+    examples/
+      resume_guide.txt
+  tests/
+    case_01/
+    case_02/
+    ...
+    case_06/
+  assets/
+    core_path.png
+    function_modules.png
+    ai_pipeline.png
+    screenshot_match.png
+    screenshot_resume.png
+  docs/
+    AI_Career_Assistant_V0.8_PRD.docx
 
 当前局限
 
