@@ -17,10 +17,13 @@
 ## 产品预览
 
 <table>
-<tr>
-<td width="50%" align="center"><b>首页</b><br><img src="assets/screenshot_home.png" width="100%"></td>
+<tr><td width="50%" align="center"><b>首页</b><br><img src="assets/screenshot_home.png" width="100%"></td>
+
 <td width="50%" align="center"><b>岗位匹配</b><br><img src="assets/screenshot_match.png" width="100%"></td>
-<td width="50%" align="center"><b>修改建议</b><br><img src="assets/screenshot_advise.png" width="100%"></td>
+</tr>
+
+<tr><td width="50%" align="center"><b>修改建议</b><br><img src="assets/screenshot_advise.png" width="100%"></td>
+
 <td width="50%" align="center"><b>优化版简历</b><br><img src="assets/screenshot_resume.png" width="100%"></td>
 </tr>
 </table>
