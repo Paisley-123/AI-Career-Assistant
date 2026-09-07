@@ -20,6 +20,8 @@
 <tr>
 <td width="50%" align="center"><b>首页</b><br><img src="assets/screenshot_home.png" width="100%"></td>
 <td width="50%" align="center"><b>岗位匹配</b><br><img src="assets/screenshot_match.png" width="100%"></td>
+<td width="50%" align="center"><b>修改建议</b><br><img src="assets/screenshot_advise.png" width="100%"></td>
+<td width="50%" align="center"><b>优化版简历</b><br><img src="assets/screenshot_resume.png" width="100%"></td>
 </tr>
 </table>
 
@@ -35,7 +37,7 @@
 
 本项目的核心设计是 Grounded Resume Optimization。相比单纯追求“写得更好”，系统更强调所有最终进入优化版简历的内容都必须能够追溯到用户原始简历中的明确事实。
 
-例如，原始经历为“实现基础 RAG 流程”，系统不会将其扩写为“独立完成完整 RAG 系统”；技能栏中存在 Python，也不会据此推断某项 RAG 实践一定使用了 Python。系统同时保留“基础、参与、简单”等会影响事实强度的限定词，不生成用户未提供的量化结果，也不跨项目或跨字段拼接独立事实。
+例如，原始经历为“实现基础 RAG 流程”，系统不会将其扩写为“独立完成完整 RAG 系统”；技能栏中存在 Python，也不会据此推断某项 RAG 实践一定使用了 Python。系统同时保留“基础、参与、简单”等会影响事实的限定词，不会生成用户未提供的结果，也不会跨项目拼接事实。
 
 ## 模型评估
 
