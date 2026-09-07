@@ -1,0 +1,10 @@
+可以说：
+- 有Python基础
+- 有DeepSeek API调用经验
+- 有基础LLM应用实践
+
+不可以说：
+- 完成过完整AI Demo
+- 做过RAG
+- 做过Agent
+- 有完整AI应用开发经验

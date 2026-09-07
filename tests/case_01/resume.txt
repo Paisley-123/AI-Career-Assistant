@@ -1,0 +1,9 @@
+专业：人工智能
+
+技能：
+Python、LLM应用开发、RAG、Prompt Engineering
+
+项目经历：
+使用Python调用DeepSeek API。
+实现过基础RAG流程，包括文档切分、Embedding、向量检索和大模型生成。
+完成过AI产品竞品分析，并整理过功能优缺点。

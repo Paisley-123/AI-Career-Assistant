@@ -1,0 +1,7 @@
+专业：人工智能
+
+技能：
+Python、LLM基础
+
+项目经历：
+使用Python成功调用DeepSeek API，并完成文本问答测试。

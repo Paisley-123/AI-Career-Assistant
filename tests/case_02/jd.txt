@@ -1,0 +1,7 @@
+岗位：Agent产品实习生
+
+要求：
+1. 熟悉LLM、RAG、Agent。
+2. 了解Tool Calling和MCP。
+3. 有Agent项目经验优先。
+4. 具备产品思维。

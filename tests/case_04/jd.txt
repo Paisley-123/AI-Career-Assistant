@@ -1,0 +1,7 @@
+岗位：AI应用开发实习生
+
+要求：
+1. 熟悉Python。
+2. 熟悉LLM API调用。
+3. 有RAG、Agent项目经验优先。
+4. 能完成AI应用Demo。

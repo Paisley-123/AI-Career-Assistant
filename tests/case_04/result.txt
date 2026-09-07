@@ -1,0 +1,146 @@
+===== 简历事实提取 =====
+
+专业：
+- 人工智能
+
+技能：
+- Python
+- LLM基础
+
+项目经历：
+- 使用Python成功调用DeepSeek API，并完成文本问答测试。
+
+===== JD要求提取 =====
+
+岗位名称：AI应用开发实习生
+核心要求：
+- 熟悉Python
+- 熟悉LLM API调用
+- 能完成AI应用Demo
+加分项：
+- 有RAG、Agent项目经验优先
+
+===== 事实-JD映射 =====
+
+{
+  "matches": [
+    {
+      "requirement": "熟悉Python",
+      "status": "已满足",
+      "evidence": [
+        "技能栏：Python",
+        "项目经历：使用Python成功调用DeepSeek API"
+      ],
+      "explanation": "技能栏明确列出Python，且项目经历中明确写明使用Python进行实践，直接支撑该要求。"
+    },
+    {
+      "requirement": "熟悉LLM API调用",
+      "status": "已满足",
+      "evidence": [
+        "技能栏：LLM基础",
+        "项目经历：使用Python成功调用DeepSeek API，并完成文本问答测试"
+      ],
+      "explanation": "技能栏有LLM基础，且项目经历明确为调用LLM API（DeepSeek API）并完成问答，直接支撑该要求。"
+    },
+    {
+      "requirement": "能完成AI应用Demo",
+      "status": "部分相关",
+      "evidence": [
+        "项目经历：使用Python成功调用DeepSeek API，并完成文本问答测试"
+      ],
+      "explanation": "该实践可视为一个简单的AI应用原型，但未明确描述为Demo，且缺乏界面或完整应用形态，只能部分支撑。"
+    },
+    {
+      "requirement": "有RAG、Agent项目经验优先",
+      "status": "当前未体现",
+      "evidence": [],
+      "explanation": "简历中未出现RAG或Agent相关项目经验，无法支撑该加分项。"
+    }
+  ]
+}
+
+===== 结构化优化结果 =====
+
+{
+  "suggestions": {
+    "ordering": [
+      {
+        "suggestion": "在技能栏中，将“Python”置于“LLM基础”之前。",
+        "reason": "JD明确要求熟悉Python，且项目经历中已体现Python实践，将Python排在前面更直接对应核心要求。"
+      },
+      {
+        "suggestion": "在项目经历中，将“使用Python成功调用DeepSeek API，并完成文本问答测试”作为唯一一条项目经历，无需调整顺序。",
+        "reason": "该经历同时支撑Python和LLM API调用两项核心要求，信息集中，无需额外排序。"
+      }
+    ],
+    "wording": [
+      {
+        "original": "使用Python成功调用DeepSeek API，并完成文本问答测试。",
+        "optimized": "使用Python调用DeepSeek API，完成文本问答测试。",
+        "reason": "删除“成功”和“并”等非必要修饰词，使表述更简洁，事实含义不变。"
+      }
+    ]
+  },
+  "follow_up": {
+    "jd_related": [
+      "该文本问答测试是否构建了简单的Demo界面或交互方式？当前不能直接写入简历，确认真实做过后再补充。",
+      "该实践是否解决了某个具体问题或场景？当前不能直接写入简历，确认真实做过后再补充。"
+    ],
+    "general_advice": [
+      "建议后续学习并实践RAG或Agent相关项目，以匹配JD中的加分项。",
+      "建议在项目描述中突出个人负责的具体工作和实际效果，增强说服力。"
+    ]
+  },
+  "resume_draft": "### 技能\n- Python【事实依据：技能栏：Python】\n- LLM基础【事实依据：技能栏：LLM基础】\n\n### 项目经历\n- 使用Python调用DeepSeek API，完成文本问答测试。【事实依据：项目经历：使用Python成功调用DeepSeek API，并完成文本问答测试】"
+}
+
+===== 结构化事实核验结果 =====
+
+{
+  "audit": [
+    {
+      "content": "### 技能\n- Python【事实依据：技能栏：Python】\n- LLM基础【事实依据：技能栏：LLM基础】",
+      "evidence": "技能：Python；LLM基础",
+      "status": "通过",
+      "reason": "技能栏逐条列出，未新增或修改事实，符合规则18。"
+    },
+    {
+      "content": "### 项目经历\n- 使用Python调用DeepSeek API，完成文本问答测试。【事实依据：项目经历：使用Python成功调用DeepSeek API，并完成文本问答测试】",
+      "evidence": "项目经历：使用Python成功调用DeepSeek API，并完成文本问答测试",
+      "status": "通过",
+      "reason": "删除了“成功”和“并”，属于等义精简，未新增或删除事实，符合规则4和16。"
+    }
+  ],
+  "safe_resume": {
+    "sections": [
+      {
+        "name": "技能",
+        "items": [
+          "Python",
+          "LLM基础"
+        ]
+      },
+      {
+        "name": "项目经历",
+        "items": [
+          "使用Python调用DeepSeek API，完成文本问答测试。"
+        ]
+      }
+    ]
+  }
+}
+
+===== Evaluation =====
+
+事实一致性：5/5
+幻觉控制：5/5
+信息完整性：5/5
+JD利用程度：5/5
+优化价值：5/5
+发现的问题：
+- 未发现明显问题。原始简历中的专业、技能、项目经历均完整保留；优化仅删除了“成功”和“并”两个非必要修饰词，属于等义精简；未新增任何限定词、程度词、项目边界或技术归属；未跨字段组合事实；未将并列技能合并为包含关系；未使用“覆盖”“完整”“多个”等增强性词汇。
+- 事实-JD映射准确区分了“已满足”“部分相关”“当前未体现”三个层级，未将“能完成AI应用Demo”误判为已满足，也未将RAG/Agent加分项误判为核心要求。
+- 结构化优化结果中的排序建议合理（Python置于LLM基础之前），措辞建议为最小必要精简，且已落实到resume_draft和最终安全版。
+- 后续追问仅围绕已有经历的真实上下文（是否构建了Demo界面、是否解决具体问题），未引入Embedding、检索策略等资料未出现的高级方法；通用建议仅2条且方向明确。
+- 最终safe_resume为结构化sections/items，技能与项目经历独立成条，无重复栏目，无信息遗漏。
+总体评价：该案例从原始简历到事实抽取、JD映射、结构化优化、事实审核、最终安全版的全链路均严格遵循事实边界。未发现删除原文限定词、新增保守词、跨字段融合、技术常识推断或范围增强等任何违规行为。优化建议均基于JD对应关系与等义精简，未预测招聘者行为或虚构优先级。信息完整性满分，专业、技能、项目经历全部保留。JD利用程度高，岗位匹配使用最直接证据，未加入JD未写出的要求。整体流程可作为事实驱动简历优化的规范示例。

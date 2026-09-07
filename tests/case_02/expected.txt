@@ -1,0 +1,10 @@
+可以说：
+- 有LLM和RAG基础
+- 有Python和API调用经验
+- 与Agent方向存在一定基础关联
+
+不可以说：
+- 做过Agent项目
+- 熟悉Tool Calling
+- 熟悉MCP
+- 有Agent产品设计经验
