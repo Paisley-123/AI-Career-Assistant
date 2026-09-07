@@ -83,5 +83,5 @@
 
 ## 产品文档
 
-详细的产品需求与设计说明见：AI简历优化助手PRD.docx
+详细的产品需求与设计说明见：(docs/AI_Career_Assistant_V0.8_PRD.docx)
 
